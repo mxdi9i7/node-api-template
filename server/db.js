@@ -1,6 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+require('dotenv').config();
+
+const connectionString = process.env.DB_CONNECTION_STRING;
+
 let isConnected;
-const connectionString = 'mongodb+srv://admin:jjnn123@cluster0-tf4wf.mongodb.net/pwitter';
 
 const connectToDatabase = () => {
   if (isConnected) {
