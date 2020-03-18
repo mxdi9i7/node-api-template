@@ -1,4 +1,4 @@
-# Node Express Boilerplate
+# Node API Template
 
 A boilerplate for any kind of API service projects.
 
