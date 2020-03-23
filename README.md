@@ -60,6 +60,13 @@ npm clean-install
 
 and then it should straighten out your babel issue.
 
+## Todo List
+- Deployment scripts
+- Environment variable support
+- SQL support
+- Basic CRUD examples
+- Usage tutorial videos
+
 ## Maintainer(s)
 
 - [mxdi9i7](https://github.com/mxdi9i7)
