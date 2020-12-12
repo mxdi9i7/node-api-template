@@ -1,8 +1,8 @@
 import express from 'express';
 import twilioController from '../controllers/twilio';
-
 const router = express.Router();
 
+// request a SMS code
 router.post('/code', async (req, res) => {
 	try {
 		const data = await twilioController.getSMSCode(req, res);
@@ -17,7 +17,7 @@ router.post('/code', async (req, res) => {
 		});
 	}
 });
-
+// verify SMS code
 router.post('/verify', async (req, res) => {
 	try {
 		const data = await twilioController.verifyCode(req, res);

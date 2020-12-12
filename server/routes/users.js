@@ -14,7 +14,7 @@ const errorMessage = 'File is too big';
 router.get('/fetch', async (req, res, next) => {
   res.json({ success: true });
 });
-
+// change user avatar
 router.post('/avatar',UploadController.avatar.single('data'), async (req, res, error) => {
 		try{
 			const size = req.headers['content-length'];
