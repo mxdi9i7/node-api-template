@@ -54,6 +54,10 @@ npm run watch
 - We use [Mongoose](https://mongoosejs.com/) as the Database ORM for MongoDB.
 - We keep all the model schemas and data structures within `/models`.
 
+**dev.env:**
+- This file will store all sensitive information and API keys.
+- Change the file name to `.env` and fill all API keys.
+
 ## Common Issues
 If you run into Babel 7.0.0 version not compatible error, simply remove the `node_modules` folder and `package-lock.json` or `yarn.lock` whichever applies, then run:
 ```
