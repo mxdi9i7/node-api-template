@@ -9,6 +9,8 @@ A boilerplate for any kind of API service projects.
   - **MongoDB** cloud/local server connection.
     - Example Models and Schemas
   - Basic email and password based **JWT** authentication endpoints
+  - SMS verification code sent and verified via **Twilio**
+  - User avatar upload using **Amazon S3**
   - Basic endpoint routes supporting modern HTTP2 methods.
     - Controllers architecture
   - Convenient set of helper utilities
@@ -55,6 +57,7 @@ npm run watch
 ## Common Issues
 If you run into Babel 7.0.0 version not compatible error, simply remove the `node_modules` folder and `package-lock.json` or `yarn.lock` whichever applies, then run:
 ```
+npm install
 npm clean-install
 ```
 
@@ -71,7 +74,7 @@ and then it should straighten out your babel issue.
 
 - [mxdi9i7](https://github.com/mxdi9i7)
 - [ssysm](https://github.com/ssysm)
-
+- [chuxu200328](https://github.com/chuxu200328)
 
 ## Contributing
 - All contributions are welcomed.

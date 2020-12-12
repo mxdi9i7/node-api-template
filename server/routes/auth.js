@@ -2,21 +2,22 @@ import express from 'express';
 import AuthController from '../controllers/auth';
 const router = express.Router();
 
+// user register
 router.post('/register', async (req, res) => {
-  try {
-    const data = await AuthController.register(req.body);
-    return res.json({
-      success: true,
-      data: data,
-    });
-  } catch (e) {
-    return res.json({
-      success: false,
-      data: e,
-    });
-  }
+	try {
+		const data = await AuthController.register(req.body);
+		return res.json({
+			success: true,
+			data: data,
+		});
+	} catch (e) {
+		return res.json({
+			success: false,
+			data: e,
+		});
+	}
 });
-
+// user login
 router.post('/login', async (req, res) => {
 	try {
 		const data = await AuthController.handleLogin(req.body);
@@ -32,7 +33,7 @@ router.post('/login', async (req, res) => {
 		});
 	}
 });
-
+// user forgot password
 router.post('/forgot', async (req, res) => {
 	try {
 		const data = await AuthController.forgotPassword(req.body);
@@ -48,7 +49,7 @@ router.post('/forgot', async (req, res) => {
 		});
 	}
 });
-
+// user change password
 router.put('/password', async (req, res) => {
 	try {
 		const result = await AuthController.changePassword(req.body);
