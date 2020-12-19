@@ -8,28 +8,34 @@ const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
 const bucket = process.env.AWS_BUCKET;
 const region = process.env.AWS_REGION;
 import getFileObject from '../helpers/fileObject';
-const s3 = new aws.S3({
-	accessKeyId,
-	secretAccessKey,
-	region,
-});
 
-const s3AvatarStorage = multerS3({
-	s3: s3,
-	bucket: bucket,
-	key: (req, file, cb) => {
-		const extension = getFileObject(file).extension;
-		const nameRule =
-			Date.now() + Math.round(Math.random() * Randomize.MILLISECONDS);
+let s3, s3AvatarStorage;
 
-		cb(null, `avatar-${nameRule}.${extension}`);
-	},
-});
+try {
+  s3 = new aws.S3({
+    accessKeyId,
+    secretAccessKey,
+    region,
+  });
+  s3AvatarStorage = multerS3({
+    s3: s3,
+    bucket: bucket,
+    key: (req, file, cb) => {
+      const extension = getFileObject(file).extension;
+      const nameRule =
+        Date.now() + Math.round(Math.random() * Randomize.MILLISECONDS);
+
+      cb(null, `avatar-${nameRule}.${extension}`);
+    },
+  });
+} catch (e) {
+  console.log('Bucket environment is not set');
+}
 
 const avatar = multer({ storage: s3AvatarStorage });
 
 const UploadController = {
-	avatar,
+  avatar,
 };
 
 export default UploadController;

@@ -11,15 +11,23 @@ const connectToDatabase = () => {
     return Promise.resolve();
   }
   console.log('=> using new database connection');
-  return mongoose
-    .connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(db => {
-      isConnected = db.connections[0].readyState;
-      console.log('Connection Success!');
-    })
-    .catch(e => {
-      console.log(e);
-    });
+
+  if (connectionString) {
+    return mongoose
+      .connect(connectionString, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
+      .then((db) => {
+        isConnected = db.connections[0].readyState;
+        console.log('Connection Success!');
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  } else {
+    console.log('MongoDB url not set in environment variable');
+  }
 };
 
 export default connectToDatabase;
